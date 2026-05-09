@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'studybud.wsgi.application'
 # Uses Supabase PostgreSQL in production via DATABASE_URL env variable
 # Falls back to local SQLite for development
 
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        default=config('DATABASE_URL', default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
         conn_max_age=600,
-        #ssl_require=config('DB_SSL_REQUIRE', default=True, cast=bool),
     )
 }
 

@@ -36,7 +36,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        if find . -name "test_*.py" -0 -name "*_test.py"
+        if find . -name "test_*.py" -o -name "*_test.py"
            pytest
         else
            echo "No test found"
